@@ -1,0 +1,17 @@
+<form [formGroup]="todoForm" (ngSubmit)="processTodo()">
+    <button type="button" (click)="addTodo()" color="primary" mat-raised-button>Add TODO</button>
+    <tbody formArrayName="todos">
+        <tr *ngFor="let todo of todoArray.controls" [formGroup]="todo">
+            <td> <input type="date" formControlName = "date"></td>
+            <td> <input type="text" formControlName = "description"></td>
+            <td>
+                <select formControlName="priority">
+                    <option value="low">Low</option>
+                    <option value="Med">Med</option>
+                    <option value="High">High</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+    <button type="submit" color="primary" mat-raised-button>Save</button>
+</form>
